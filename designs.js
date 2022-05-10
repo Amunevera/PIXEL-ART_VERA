@@ -1,39 +1,47 @@
-// Select size input
-var height, width, color;
+var height, width;
 
-const submit = document.getElementById('#sizePicker')
+let submit = document.getElementById('#submit');
+$(document).ready(function() {
+sizePicker =document.addEventListener('submit', function event() {
+ //    
+    height=$('#inputHeight').val();
+    width=$('#inputWidth').val();
+    MakeGrid (height, width);
 
-// add eventlistener to the submit button
-$('#sizePicker').submit(function (event) {
-    event.preventDefault();
-    Height = document.getElementById('#inputHeight').value;
-    Width = document.getElementById('#inputWidth').value;
-    //parameters for creating grids
-    makeGrid (Height, Width);
+    sizePicker = function(event) {
+        event.preventDefault();
+        clearGrid();
+        makeGrid();
+    };
+    
+}
+)}
+)
 
-// function call to makeGrids
-function makeGrid(sizeHeight, sizeWidth) {
-    tablep= document.getElementById('#pixelCanvas');
- // for loop for making grids       
- for (var i = 1; i<= sizeHeight; i++) {
-     $ ('#pixelCanvas').append('<tr id=table' + i + '></tr>');
-     for (var k = 1; k<= sizeWidth; k++) {
-         $('table' +i).append('<td></td>');
-     }
+//call function to create grid
+function MakeGrid(height, width) {
+    for(var i=1; i<=height; i++) {
+        $('#pixelCanvas').append('<tr id=table' + i + '></tr>');
+        for(var k=1; k<=width; k++) {
+            $('#table' + i).append('<td></td>');
+        }
     }
-        };
-//clear table of availabe data
-while (tablep.hasChildNodes()) {
-    tablep.removeChild(tablep.firstChild)
 };
-//event listener to input colors to grid
-Color = document.getElementById('#colorPicker').val();
-td.addEventListener("click") (function addcolor() {
-  if ($(colorfill).attr('style')) {
-      $(colorfill).removeAttr('style')
+
+//function call to clear existing grid
+function clearGrid() {
+    while (canvas.firstChild) {
+        canvas.removeChild(canvas.firstChild);
     }
-      else{
-          $(colorfill).attr('style','background-color:' + Color);
-      }
-});
+};
+
+ //to add color to cell
+ let color = document.getElementById('#colorPicker');
+pixelCanvas= document.addEventListener('click', function addColor() {
+    color= $('#colorPicker').val();
+        if($(this).attr("style")) {
+            $(this).removeAttr("style")
+        } else {
+            $(this).attr("style", 'background-color:' + color);
+        }
 });
