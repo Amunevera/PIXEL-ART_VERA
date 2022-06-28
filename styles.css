@@ -1,11 +1,13 @@
 body {
     text-align: center;
+    background-color: rgb(219, 240, 240);
 }
 
 h1 {
     font-family: Monoton;
     font-size: 70px;
     margin: 0.2em;
+    color: rgb(27, 16, 2);
 }
 
 h2 {
@@ -19,7 +21,7 @@ h2:first-of-type {
 table,
 tr,
 td {
-    border: 1px solid black;
+    border: 2px solid black;
 }
 
 table {
@@ -28,11 +30,11 @@ table {
 }
 
 tr {
-    height: 20px;
+    height: 40px;
 }
 
 td {
-    width: 20px;
+    width: 40px;
 }
 
 input[type=number] {
